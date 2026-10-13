@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Email Checker — проверка валидности Email</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <main class="page">
+    <header class="header">
+      <p class="eyebrow">Вариант 17</p>
+      <h1>Email Checker</h1>
+      <p class="lead">Проверка формата email и MX-записей. Результаты сохраняются как список контрагентов.</p>
+    </header>
+
+    <section class="panel" aria-labelledby="check-title">
+      <h2 id="check-title">Проверка контрагента</h2>
+      <form id="check-form" class="form">
+        <label>
+          Имя / организация
+          <input id="name" name="name" type="text" required maxlength="255" placeholder="ООО Пример" />
+        </label>
+        <label>
+          Email
+          <input id="email" name="email" type="text" required maxlength="320" placeholder="user@example.com" />
+        </label>
+        <div class="actions">
+          <button type="submit" id="btn-check">Проверить email</button>
+          <button type="button" id="btn-list" class="secondary">Показать контрагентов</button>
+        </div>
+      </form>
+      <p id="status" class="status" role="status" aria-live="polite"></p>
+      <pre id="last-result" class="result hidden"></pre>
+    </section>
+
+    <section class="panel" aria-labelledby="list-title">
+      <h2 id="list-title">Проверенные контрагенты</h2>
+      <div class="table-wrap">
+        <table>
+          <thead>
+            <tr>
+              <th>ID</th>
+              <th>Имя</th>
+              <th>Email</th>
+              <th>Формат</th>
+              <th>MX</th>
+              <th>Проверено</th>
+            </tr>
+          </thead>
+          <tbody id="rows">
+            <tr><td colspan="6" class="empty">Нажмите «Показать контрагентов»</td></tr>
+          </tbody>
+        </table>
+      </div>
+    </section>
+  </main>
+  <script src="app.js"></script>
+</body>
+</html>
